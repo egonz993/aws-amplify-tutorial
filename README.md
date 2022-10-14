@@ -259,7 +259,7 @@ export default TodoComponent
 ```
 
 ### Modify App.js
-```
+```js
 /* src/App.js */
 import React from 'react'
 import AuthComponent from './components/AuthComponent'
@@ -299,7 +299,6 @@ amplify add hosting
 
 ```
 amplify publish
-
 ```
 
 
