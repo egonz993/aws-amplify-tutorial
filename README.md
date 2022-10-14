@@ -6,9 +6,12 @@ https://dev.d1mzmowthaz1xm.amplifyapp.com/
 
 ```
 npm install -g @aws-amplify/cli
-amplify configure
-	In AWS Create User and Get it Keys
 ```
+
+```
+amplify configure
+```
+>>> In AWS Create User and Get it Keys
 
 # Create and Start React App
 
