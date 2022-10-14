@@ -278,13 +278,6 @@ export default App
 ```
 
 
-# Build the App
-
-```
-npm run build
-```
-
-
 # Create an Amplify Host
 
 
@@ -295,6 +288,13 @@ amplify add hosting
 ```
 ? Select the plugin module to execute: # Hosting with Amplify Console (Managed hosting with custom domains, Continuous deployment)
 ? Choose a type: # Manual Deployment
+```
+
+
+# Build the App
+
+```
+npm run build
 ```
 
 
