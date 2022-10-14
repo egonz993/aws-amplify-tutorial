@@ -1,10 +1,10 @@
+/* src/AuthComponent.js */
 import React from 'react'
-import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
+import { withAuthenticator, Button } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 import TodoComponent from './TodoComponent';
 
 const AuthComponent = ({ signOut, user }) => {
-    // Todo logic here
     console.log(user)
     return (
       <>

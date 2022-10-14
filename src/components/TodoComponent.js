@@ -1,4 +1,4 @@
-/* src/App.js */
+/* src/TodoComponent.js */
 import React, { useEffect, useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import { createTodo } from '../graphql/mutations'
