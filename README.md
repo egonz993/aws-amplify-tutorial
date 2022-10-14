@@ -13,6 +13,7 @@ amplify configure
 ```
 > In AWS Create User and Get it Keys
 
+
 # Create and Start React App
 
 ```
@@ -101,7 +102,6 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
 ```
 
 # Create a GraphQL API and database
@@ -149,15 +149,19 @@ amplify push
 ```
 
 
-# Create and Connect the Frontend to API
+# Create the Frontend
 
+This demo implements a Todo List with a basic user/pass AuthUI
+
+### Create the components
 ```
 mkdir src/components
 touch src/components/AuthComponent.js
 touch src/components/TodoComponent.js
 ```
 
-### Modify AuthComponent.js
+### Modify the Auth UI
+> AuthComponent.js
 ```js
 /* src/AuthComponent.js */
 import React from 'react'
@@ -178,7 +182,8 @@ const AuthComponent = ({ signOut, user }) => {
 export default withAuthenticator(AuthComponent);
 ```
 
-### Modify TodoComponent.js
+### Modify the Todo List UI
+> TodoComponent.js
 ```js
 /* src/TodoComponent.js */
 import React, { useEffect, useState } from 'react'
@@ -261,12 +266,12 @@ const styles = {
 export default TodoComponent
 ```
 
-### Modify App.js
+### Draw the created components 
+> App.js
 ```js
 /* src/App.js */
 import React from 'react'
 import AuthComponent from './components/AuthComponent'
-import TodoComponent from './components/TodoComponent'
 
 const App = () => {
   return (<>
@@ -278,8 +283,8 @@ export default App
 ```
 
 
-# Create an Amplify Host
 
+# Create an Amplify Host
 
 ```
 amplify add hosting
@@ -292,14 +297,12 @@ amplify add hosting
 
 
 # Build the App
-
 ```
 npm run build
 ```
 
 
 # Deploy the App
-
 ```
 amplify publish
 ```
