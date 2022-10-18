@@ -1,7 +1,7 @@
 /* src/TodoComponent.js */
 import React, { useEffect, useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
-import { createTodo } from '../graphql/mutations'
+import { createTodo, deleteTodo } from '../graphql/mutations'
 import { listTodos } from '../graphql/queries'
 
 
@@ -39,6 +39,19 @@ const TodoComponent = () => {
     }
   }
 
+  async function removeTodo(id) {
+    console.log("remove", id)
+    const todo = {
+      id
+    }
+    try {
+      await API.graphql(graphqlOperation(deleteTodo, {input: todo}))
+                .then(() => window.location.reload())
+    } catch (err) {
+      console.log('error removing todo:', err)
+    }
+  }
+
   return (
     <div style={styles.container}>
       <h2>Amplify Todos</h2>
@@ -58,6 +71,7 @@ const TodoComponent = () => {
       {
         todos.map((todo, index) => (
           <div key={todo.id ? todo.id : index} style={styles.todo}>
+            <button onClick={() => removeTodo(todo.id)}>X</button>
             <p style={styles.todoName}>{todo.name}</p>
             <p style={styles.todoDescription}>{todo.description}</p>
           </div>
@@ -69,7 +83,7 @@ const TodoComponent = () => {
 
 const styles = {
   container: { width: 400, margin: '0 auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: 20 },
-  todo: {  marginBottom: 15 },
+  todo: {  marginTop: 15, backgroundColor: '#ccc' },
   input: { border: 'none', backgroundColor: '#ddd', marginBottom: 10, padding: 8, fontSize: 18 },
   todoName: { fontSize: 20, fontWeight: 'bold' },
   todoDescription: { marginBottom: 0 },
