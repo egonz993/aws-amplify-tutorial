@@ -1,6 +1,7 @@
 import React from 'react'
 import { Amplify, PubSub } from 'aws-amplify';
 import { AWSIoTProvider } from '@aws-amplify/pubsub';
+import { Button } from '@aws-amplify/ui-react';
 
 // Apply plugin with configuration
 Amplify.addPluggable(new AWSIoTProvider({
@@ -25,7 +26,11 @@ const pub = async (message) => {
 const PubSubComponent = () => {
   return (
     <div>
-      <button onClick={() => pub("Hola Mundo!")}>Greet</button>
+    <Button
+      isFullWidth={true}
+      variation="primary"
+      onClick={() => pub("Hola Mundo!")}
+    >Greet</Button>
     </div>
   )
 }

@@ -1,11 +1,16 @@
 /* src/App.js */
 import React from 'react'
-import AuthComponent from './components/AuthComponent'
+import TodoComponent from './components/TodoComponent';
+import PubSubComponent from './components/PubSubComponent';
+import { withAuthenticator, Button } from '@aws-amplify/ui-react';
 
-const App = () => {
+
+const App = ({ signOut }) => {
   return (<>
-    <AuthComponent></AuthComponent>
+    <Button onClick={signOut} isFullWidth={true}>Sign out</Button>
+    <PubSubComponent></PubSubComponent>
+    <TodoComponent></TodoComponent>
   </>)
 }
 
-export default App
+export default withAuthenticator(App)

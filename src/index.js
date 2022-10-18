@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 /* AWS Amplify */
 import { Amplify } from 'aws-amplify';
 import awsExports from './aws-exports';
+import '@aws-amplify/ui-react/styles.css';
 Amplify.configure(awsExports);
 
 
